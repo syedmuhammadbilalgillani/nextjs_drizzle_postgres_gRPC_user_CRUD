@@ -29,6 +29,35 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
+## User gRPC API
+
+User CRUD is exposed over gRPC alongside the Next.js app.
+
+### Proto
+
+- **`proto/user.proto`** – `User` message and `UserService` with:
+  - `CreateUser`, `GetUser`, `ListUsers`, `UpdateUser`, `DeleteUser`
+
+### Run the gRPC server
+
+Ensure `DATABASE_URL` (and optionally `GRPC_PORT`, default `50051`) are set, then:
+
+```bash
+npm run grpc:server
+```
+
+### Example client
+
+```bash
+npm run grpc:client
+```
+
+This runs `server/grpc-client-example.ts`, which calls CreateUser, GetUser, UpdateUser, and ListUsers.
+
+### Port
+
+- Default: `50051`. Override with `GRPC_PORT`.
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.

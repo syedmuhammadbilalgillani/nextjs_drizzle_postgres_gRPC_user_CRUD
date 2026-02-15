@@ -3,15 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "node init && next dev",
+    "build": "node init && next build",
+    "start": "node init && next start",
     "lint": "eslint",
     "db:generate": "drizzle-kit generate",
     "db:push": "drizzle-kit push",
-    "db:drop": "drizzle-kit drop"
+    "db:drop": "drizzle-kit drop",
+    "db:seed": "tsx scripts/seed-users.ts",
+    "grpc:server": "tsx server/grpc-server.ts",
+    "grpc:client": "tsx server/grpc-client-example.ts"
   },
   "dependencies": {
+    "@faker-js/faker": "^10.3.0",
+    "@grpc/grpc-js": "^1.14.3",
+    "@grpc/proto-loader": "^0.8.0",
     "dotenv": "^17.3.1",
     "drizzle-orm": "^0.45.1",
     "next": "16.1.6",
